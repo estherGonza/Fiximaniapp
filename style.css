@@ -16,8 +16,9 @@ body {
     width: 100%;
     max-width: 600px;
     text-align: center;
-    color: #FFFFFF;
+    color: #FF7300;
     padding: 20px;
+    text-color: #FFFFFF;
 }
 
 /* 3. Botón blanco con letras naranjas */
