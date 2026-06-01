@@ -1,7 +1,7 @@
 /* Reset */
 * { margin:0; padding:0; box-sizing:border-box; font-family: Arial, Helvetica, sans-serif; }
 
-/* Fondo Naranja */
+/* 1. Fondo de todo el sitio web color naranja */
 body {
     background-color: #FF7300; 
     min-height: 100vh;
@@ -11,24 +11,24 @@ body {
     padding: 20px;
 }
 
-/* Contenedor blanco con sombra */
+/* 2. El contenedor ahora es blanco */
 .contenedor {
     width: 100%;
     max-width: 600px;
-    background: #ffffff;
+    background: #ffffff; /* Fondo blanco */
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    color: #FF7300; /* Texto naranja para que resalte en blanco */
+    color: #FF7300; /* Texto principal en naranja */
     box-shadow: 0 8px 25px rgba(0,0,0,.2);
 }
 
-/* Botón ahora es naranja con texto blanco */
+/* 3. Botón blanco con letras naranjas */
 .btn-descarga {
     display: inline-block;
-    background: #FF7300;
-    color: #ffffff;
-    border: none;
+    background: #ffffff; /* Botón blanco */
+    color: #FF7300;      /* Letras naranjas */
+    border: 2px solid #FF7300; /* Un borde naranja para que resalte */
     cursor: pointer;
     text-decoration: none;
     font-weight: bold;
@@ -36,10 +36,12 @@ body {
     border-radius: 12px;
     transition: .3s;
     font-size: 1.1rem;
+    margin-top: 20px;
 }
 
 .btn-descarga:hover {
-    background: #e66800;
+    background: #FF7300; /* Al pasar el mouse, se vuelve naranja */
+    color: #ffffff;      /* Y las letras blancas */
     transform: translateY(-2px);
 }
 
