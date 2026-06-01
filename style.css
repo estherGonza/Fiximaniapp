@@ -15,12 +15,9 @@ body {
 .contenedor {
     width: 100%;
     max-width: 600px;
-    background: #FF7300; /* Fondo blanco */
-    border-radius: 20px;
-    padding: 40px 30px;
     text-align: center;
-    color: #FFFFFF; /* Texto principal en blanco */
-    box-shadow: 0 8px 25px rgba(0,0,0,.2);
+    color: #FFFFFF;
+    padding: 20px;
 }
 
 /* 3. Botón blanco con letras naranjas */
