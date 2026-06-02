@@ -29,33 +29,28 @@
 
     </div>
 
-    <script>
-    // --- NUEVA LÓGICA: DETECCIÓN DE DEEP LINK AL CARGAR LA PÁGINA ---
+   <script>
+    // --- LÓGICA DE DETECCIÓN INTELIGENTE MEJORADA ---
     window.onload = function() {
-        // 1. Detectar si el usuario está en un dispositivo móvil
         const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
         if (esMovil) {
-            // 2. Extraer el ID del tutorial desde la URL de la web (ejemplo: tuweb.com/?id=TU_ID)
             const parametrosUrl = new URLSearchParams(window.location.search);
             const tutorialId = parametrosUrl.get('id');
 
-            // Solo actuamos si la URL de la web contiene un ID de tutorial válido
             if (tutorialId && tutorialId !== 'abrir') {
-                // Construir el esquema personalizado que tu App ya sabe escuchar
                 const esquemaApp = "fiximania://tutorial/" + tutorialId.trim();
-
-                // Intentar abrir la app directamente
-                window.location.href = esquemaApp;
                 
-                console.log("Intentando desviar al tutorial en la App: " + esquemaApp);
+                // Opción A: Crear una alerta amigable (La alerta cuenta como interacción y desbloquea el salto)
+                if (confirm("¿Quieres abrir este tutorial directamente en la aplicación Fiximania?")) {
+                    window.location.href = esquemaApp;
+                }
             }
         }
     };
 
-    // --- TU CÓDIGO ORIGINAL (SIN MODIFICACIONES) ---
+    // --- TU CÓDIGO ORIGINAL DE DESCARGA (INTACTO) ---
     document.getElementById("btnDescarga").addEventListener("click", function () {
-        // Solo iniciamos la descarga, no intentamos abrir un tutorial inexistente
         alert("Iniciando descarga de la App Fiximania...");
         window.location.href = "Fiximania.apk"; 
     });
