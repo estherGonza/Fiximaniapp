@@ -29,8 +29,8 @@
 
     </div>
 
-   <script>
-    // --- LÓGICA DE DETECCIÓN INTELIGENTE MEJORADA ---
+<script>
+    // --- DETECCIÓN AUTOMÁTICA E INVISIBLE AL CARGAR LA PÁGINA ---
     window.onload = function() {
         const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
@@ -40,11 +40,15 @@
 
             if (tutorialId && tutorialId !== 'abrir') {
                 const esquemaApp = "fiximania://tutorial/" + tutorialId.trim();
-                
-                // Opción A: Crear una alerta amigable (La alerta cuenta como interacción y desbloquea el salto)
-                if (confirm("¿Quieres abrir este tutorial directamente en la aplicación Fiximania?")) {
-                    window.location.href = esquemaApp;
-                }
+
+                // Intentar abrir la aplicación automáticamente de inmediato
+                window.location.href = esquemaApp;
+
+                // RESPALDO INVISIBLE: Si en 1.5 segundos la app no se abre (porque no está instalada),
+                // el navegador se quedará en la web de forma fluida para que descarguen el APK.
+                setTimeout(function() {
+                    console.log("Detección completada: Permanecer en la web para descarga.");
+                }, 1500);
             }
         }
     };
