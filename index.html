@@ -30,34 +30,13 @@
     </div>
 
 <script>
-    // --- DETECCIÓN AUTOMÁTICA E INVISIBLE AL CARGAR LA PÁGINA ---
-    window.onload = function() {
-        const esMovil = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+const tutorialId = new URLSearchParams(window.location.search).get("id");
 
-        if (esMovil) {
-            const parametrosUrl = new URLSearchParams(window.location.search);
-            const tutorialId = parametrosUrl.get('id');
+window.location.href = `fiximania://tutorial/${tutorialId}`;
 
-            if (tutorialId && tutorialId !== 'abrir') {
-                const esquemaApp = "fiximania://tutorial/" + tutorialId.trim();
-
-                // Intentar abrir la aplicación automáticamente de inmediato
-                window.location.href = esquemaApp;
-
-                // RESPALDO INVISIBLE: Si en 1.5 segundos la app no se abre (porque no está instalada),
-                // el navegador se quedará en la web de forma fluida para que descarguen el APK.
-                setTimeout(function() {
-                    console.log("Detección completada: Permanecer en la web para descarga.");
-                }, 1500);
-            }
-        }
-    };
-
-    // --- TU CÓDIGO ORIGINAL DE DESCARGA (INTACTO) ---
-    document.getElementById("btnDescarga").addEventListener("click", function () {
-        alert("Iniciando descarga de la App Fiximania...");
-        window.location.href = "Fiximania.apk"; 
-    });
+setTimeout(() => {
+    window.location.href = "https://esthergonza.github.io/Fiximaniapp/";
+}, 2000);
 </script>
 
 </body>
