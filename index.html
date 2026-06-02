@@ -4,33 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fiximania</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div class="contenedor">
+
         <h1>¡Hola!</h1>
+
         <img src="logopaginaweb.png" alt="Logo Fiximania" class="logo">
+
         <p class="descripcion">
             Descarga la aplicación oficial de Fiximania y accede a todas sus funciones desde tu dispositivo móvil.
         </p>
 
-        <button id="btnDescarga" class="btn-descarga">
-            Abrir o Descargar App
-        </button>
+        <a href="Fiximania.apk"
+           download="Fiximania.apk"
+           class="btn-descarga"
+           id="btnDescarga">
+            Descargar aplicación
+        </a>
+
     </div>
 
     <script>
-        document.getElementById("btnDescarga").addEventListener("click", function () {
-            // 1. Intentamos abrir la app con el esquema personalizado
-            // Nota: Si esto funciona, el navegador cambiará a la app inmediatamente.
-            window.location.href = "fiximania://tutorial/abrir";
+    document.getElementById("btnDescarga").addEventListener("click", function () {
+        // Solo iniciamos la descarga, no intentamos abrir un tutorial inexistente
+        alert("Iniciando descarga de la App Fiximania...");
+        window.location.href = "Fiximania.apk"; 
+    });
+</script>
 
-            // 2. Si después de 2 segundos sigue en la web, iniciamos la descarga
-            setTimeout(function() {
-                alert("Si la App no se abrió, iniciando descarga del APK...");
-                window.location.href = "Fiximania.apk"; 
-            }, 2000);
-        });
-    </script>
 </body>
 </html>
