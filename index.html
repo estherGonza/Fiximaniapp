@@ -36,11 +36,15 @@
 <script>
 const tutorialId = new URLSearchParams(window.location.search).get("id");
 
-window.location.href = `fiximania://tutorial/${tutorialId}`;
+// Solo intentar abrir la app una vez por visita
+if (!sessionStorage.getItem("fiximaniaIntentada")) {
 
-setTimeout(() => {
-    window.location.href = "https://esthergonza.github.io/Fiximaniapp/";
-}, 2000);
+    sessionStorage.setItem("fiximaniaIntentada", "true");
+
+    window.location.href = tutorialId
+        ? `fiximania://tutorial/${tutorialId}`
+        : "fiximania://";
+}
 </script>
 
 </body>
